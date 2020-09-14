@@ -24,7 +24,7 @@ function App() {
     const account = accounts[0];
     setAddr(account);
   }
-  async function changeScreen() {
+  function changeScreen() {
     if (fundingScreen === true) {
       setFundingScreen(false);
     } else {
@@ -74,10 +74,12 @@ function App() {
           <div className="container">
             <a id="joinpool">Fund</a>
           </div>
-          <div id="seeinter" className="container">
-            <a onClick={changeScreen} id="joinpool">
-              View the interface
-            </a>
+          <div
+            onClick={() => changeScreen()}
+            id="seeinter"
+            className="container"
+          >
+            <a id="joinpool">View the interface</a>
           </div>
         </body>
       </div>
@@ -96,10 +98,8 @@ function App() {
           </p>
           <PoolStats />
         </body>
-        <div id="seeinter" className="container">
-          <a onClick={changeScreen} id="joinpool">
-            Fund the project
-          </a>
+        <div onClick={() => changeScreen()} id="seeinter" className="container">
+          <a id="joinpool">Fund the project</a>
         </div>
       </div>
     );

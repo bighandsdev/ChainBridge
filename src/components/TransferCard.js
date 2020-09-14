@@ -28,29 +28,20 @@ export default class Lend extends React.Component {
     if (this.state.NanoToWnano === true) {
       return (
         <div className="both">
-          <div className="container">
-            <div
-              className="container"
-              id="switch"
-              onClick={() => {
-                this.changeCard();
-              }}
-            >
-              <img id="switchtext" src={swap} />
-            </div>{" "}
+          <div id="card" className="container">
+            {" "}
             <p>Nano to Wnano</p>
             <div className="container2" id="timeemojidiv">
               <h1 id="timeemoji">
-                <img id="nano" src={nano} />
                 <img id="eth" src={eth} />
               </h1>
             </div>
             <div className="flexbox">
-              <p>Destination address</p>
-              <input placeholder="Eth address"></input>
+              <p className="inputText">Destination address</p>
+              <input placeholder="ETH address"></input>
             </div>
             <div className="flexbox">
-              <p>Amount</p>
+              <p className="inputText">Amount</p>
               <input placeholder="Nano amount"></input>
             </div>
             <div className="container">
@@ -62,30 +53,20 @@ export default class Lend extends React.Component {
     } else {
       return (
         <div className="both">
-          <div className="container">
-            <div
-              className="container"
-              id="switch"
-              onClick={() => {
-                this.changeCard();
-              }}
-            >
-              <img id="switchtext" src={swap} />
-            </div>{" "}
+          <div id="card" className="container">
+            {" "}
             <p>Wnano to Nano</p>
             <div className="container2" id="timeemojidiv">
               <h1 id="timeemoji">
-                <img id="eth" src={eth} />
-
                 <img id="nano" src={nano} />
               </h1>
             </div>
             <div className="flexbox">
-              <p>Destination address</p>
+              <p className="inputText">Destination address</p>
               <input placeholder="Nano address"></input>
             </div>
             <div className="flexbox">
-              <p>Amount</p>
+              <p className="inputText">Amount</p>
               <input placeholder="Wnano amount"></input>
             </div>
             <div className="container">
