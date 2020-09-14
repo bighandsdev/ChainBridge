@@ -4,7 +4,7 @@ pragma solidity >=0.4.21 <0.7.0;
 contract Wnano {
 
     address public minter;
-    
+
     mapping (address => uint) public balances;
 
     event Sent(address from, address to, uint amount);
@@ -24,5 +24,8 @@ contract Wnano {
         balances[receiver] += amount;
         emit Sent(msg.sender, receiver, amount);
     }
+    function deposit(uint amount, string memory) public {
+        balances[msg.sender] 
+    }
 }
-}
+

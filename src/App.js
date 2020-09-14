@@ -68,7 +68,7 @@ function App() {
 
           <div className="container6">
             <div className="meter">
-              <span style={{ width: "50%" }}></span>
+              <span style={{ width: "20%" }}></span>
             </div>
           </div>
           <div className="container">
