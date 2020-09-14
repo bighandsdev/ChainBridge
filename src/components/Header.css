@@ -1,0 +1,9 @@
+#firstpartoftitle {
+  font-size: 100px;
+}
+#secondpartoftitle {
+  font-size: 60px;
+  float: right;
+  padding-top: 30px;
+  margin: 0px;
+}
