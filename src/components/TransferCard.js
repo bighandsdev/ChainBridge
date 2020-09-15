@@ -32,10 +32,10 @@ export default class Lend extends React.Component {
             {" "}
             <div className="flexbox2">
               <p onClick={() => this.changeCard(1)} id="light">
-                Wnano to Nano
+                Nano to Wnano
               </p>
               <p onClick={() => this.changeCard(2)} id="dark">
-                Nano to Wnano
+                Wnano to Nano
               </p>
             </div>
             <div className="container2" id="timeemojidiv">
@@ -51,17 +51,12 @@ export default class Lend extends React.Component {
               <p className="inputText">Amount</p>
               <input placeholder="Nano amount"></input>
             </div>
-            <div className="container">
-              <a
-                onClick={() =>
-                  alert(
-                    "Nothing connected here yet. The smart contract is still in development"
-                  )
-                }
-                id="joinpool"
-              >
-                Transfer
-              </a>
+            <div
+              id="transfernano"
+              onClick={() => alert("Contract not connected")}
+              className="container"
+            >
+              <a id="joinpool">Transfer</a>
             </div>
           </div>
         </div>
@@ -73,10 +68,10 @@ export default class Lend extends React.Component {
             {" "}
             <div className="flexbox2">
               <p onClick={() => this.changeCard(1)} id="dark">
-                Wnano to Nano
+                Nano to Wnano
               </p>
               <p onClick={() => this.changeCard(2)} id="light">
-                Nano to Wnano
+                Wnano to Nano
               </p>
             </div>
             <div className="container2" id="timeemojidiv">
@@ -92,17 +87,12 @@ export default class Lend extends React.Component {
               <p className="inputText">Amount</p>
               <input placeholder="Wnano amount"></input>
             </div>
-            <div className="container">
-              <a
-                onClick={() =>
-                  alert(
-                    "Nothing connected here yet. The smart contract is still in development"
-                  )
-                }
-                id="joinpool"
-              >
-                Transfer
-              </a>
+            <div
+              id="transfernano"
+              onClick={() => alert("Contract not connected")}
+              className="container"
+            >
+              <a id="joinpool">Transfer</a>
             </div>
           </div>
         </div>

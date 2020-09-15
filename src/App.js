@@ -8,6 +8,7 @@ import Transferout from "./components/TransferCardout.js";
 import Poolbutton from "./components/Poolbutton.js";
 import Web3 from "web3";
 import ConnectWallet from "./components/Connectwallet.js";
+import qr from "./qr.png";
 
 const web3 = new Web3(Web3.givenProvider);
 
@@ -15,7 +16,10 @@ function App() {
   const ethereum = window.ethereum;
 
   const [addr, setAddr] = useState("");
-  const [fundingScreen, setFundingScreen] = useState(true);
+  const [fundingScreen, setFundingScreen] = useState(1);
+  const [progressBar, setProgressBar] = useState("");
+  const [progress, setProgress] = useState("");
+  checkProgress();
 
   async function getAccount() {
     const accounts = await ethereum.request({
@@ -24,12 +28,42 @@ function App() {
     const account = accounts[0];
     setAddr(account);
   }
-  function changeScreen() {
-    if (fundingScreen === true) {
-      setFundingScreen(false);
+  function changeScreen(number) {
+    setFundingScreen(number);
+  }
+  function checkProgress() {
+    fetch(
+      "http://api.nanoissuperior.co.uk:4200/proxy/?action=account_balance&account=nano_374ebdxydfbdngnr6hibbs8mms7zs5t656pd5yjc7fsewp1n77dn8t75zkbd"
+    )
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          checkPercentage(
+            (parseInt(result.balance) + parseInt(result.pending)) /
+              1000000000000000000000000000000
+          );
+          setProgress(
+            (parseInt(result.balance) + parseInt(result.pending)) /
+              1000000000000000000000000000000
+          );
+        },
+
+        (error) => {
+          console.log(error);
+        }
+      );
+  }
+  async function checkPercentage(Number) {
+    let A = Number;
+    const B = 5000;
+    if (A < 100) {
+      A = 100;
     } else {
-      setFundingScreen(true);
+      A = A;
     }
+
+    const percDiff = (A / B) * 100;
+    setProgressBar(percDiff.toString());
   }
   async function sendTransaction() {
     const ethereum = window.ethereum;
@@ -56,26 +90,28 @@ function App() {
         // If the request fails, the Promise will reject with an error.
       });
   }
-  if (fundingScreen === true) {
+  if (fundingScreen === 1) {
     return (
       <div className="App">
         <header className="App-header">
           <Header />
         </header>
         <body className="bodyfund">
-          <h1>Goal 5,000 Nano</h1>
+          {" "}
           <p>To help bring ChainBridge to life, we need your support.</p>
-
+          <p id="fundingtext"> Our funding goal is:</p>
+          <h1 id="amount">5,000 Nano</h1>
           <div className="container6">
             <div className="meter">
-              <span style={{ width: "20%" }}></span>
+              <span style={{ width: `${progressBar}%` }}></span>
             </div>
           </div>
-          <div className="container">
+          <p>Current we are at {Math.round(progress * 100) / 100} Nano</p>
+          <div onClick={() => changeScreen(3)} className="container">
             <a id="joinpool">Fund</a>
           </div>
           <div
-            onClick={() => changeScreen()}
+            onClick={() => changeScreen(2)}
             id="seeinter"
             className="container"
           >
@@ -84,7 +120,7 @@ function App() {
         </body>
       </div>
     );
-  } else {
+  } else if (fundingScreen === 2) {
     return (
       <div className="App">
         <header className="App-header">
@@ -98,9 +134,43 @@ function App() {
           </p>
           <PoolStats />
         </body>
-        <div onClick={() => changeScreen()} id="seeinter" className="container">
+        <div
+          onClick={() => changeScreen(1)}
+          id="seeinter"
+          className="container"
+        >
           <a id="joinpool">Fund the project</a>
         </div>
+      </div>
+    );
+  } else if (fundingScreen === 3) {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <Header />
+        </header>
+        <body>
+          <img id="qrcode" src={qr} />
+          <p>
+            nano_374ebdxydfbdngnr6hibbs8mms7zs5t656pd5yjc7fsewp1n77dn8t75zkbd
+          </p>
+
+          <div className="container6">
+            <div className="meter">
+              <span style={{ width: `${progressBar}%` }}></span>
+            </div>
+          </div>
+          <div onClick={() => changeScreen(1)} className="container">
+            <a id="joinpool">Back</a>
+          </div>
+          <div
+            onClick={() => changeScreen(2)}
+            id="seeinter"
+            className="container"
+          >
+            <a id="joinpool">View the interface</a>
+          </div>
+        </body>
       </div>
     );
   }

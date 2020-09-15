@@ -124,3 +124,9 @@ input {
   color: #947b93;
   cursor: pointer;
 }
+#transfernano {
+  cursor: pointer;
+}
+#transfernano:hover {
+  background-color: rgb(255, 249, 249);
+}

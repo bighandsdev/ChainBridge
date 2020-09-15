@@ -92,7 +92,7 @@ p {
   background: rgb(240, 231, 234);
   border-width: 0px;
   border-style: solid;
-  border-color: rgb(226, 207, 213);
+  border-color: rgb(240, 231, 234);
 }
 #seeinter {
   position: absolute;
@@ -144,4 +144,13 @@ p {
 }
 .est {
   width: 50%;
+}
+#qrcode {
+  border-radius: 10px;
+}
+#amount {
+  margin-top: 3px;
+}
+#fundingtext {
+  margin-bottom: 1px;
 }
