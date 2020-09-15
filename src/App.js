@@ -62,7 +62,7 @@ function App() {
         <header className="App-header">
           <Header />
         </header>
-        <body>
+        <body className="bodyfund">
           <h1>Goal 5,000 Nano</h1>
           <p>To help bring ChainBridge to life, we need your support.</p>
 
@@ -91,7 +91,7 @@ function App() {
           <Header />
         </header>
         <ConnectWallet getAccount={() => getAccount()} addr={addr} />
-        <body>
+        <body className="bodydapp">
           <p>
             Use this as a bridge for moving Nano to and from ethereum in the
             form of WNANO.

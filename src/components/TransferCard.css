@@ -17,6 +17,7 @@
   border-style: solid;
   border-color: rgb(226, 207, 213);
 }
+
 .flexbox {
   background: rgb(240, 235, 237);
   padding: 1px;
@@ -24,6 +25,11 @@
   border: 1px solid rgb(233, 210, 210);
   box-shadow: rgb(247, 242, 244) 1px 1px 0px inset;
   border-radius: 12px;
+}
+.flexbox2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .flexboxtext {
   padding: 3px;
@@ -90,14 +96,31 @@ input {
 }
 #card {
   width: 300px;
+  padding-top: 10px;
 }
 input {
   width: 270px;
   height: 25px;
 }
 #eth {
+  height: 45px;
   width: 65px;
 }
 #nano {
   height: 45px;
+  width: 65px;
+}
+#light {
+  padding-left: 30px;
+  padding-right: 30px;
+  min-width: fit-content;
+  color: #651962;
+  cursor: pointer;
+}
+#dark {
+  padding-left: 30px;
+  padding-right: 30px;
+  min-width: fit-content;
+  color: #947b93;
+  cursor: pointer;
 }

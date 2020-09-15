@@ -11,15 +11,15 @@ export default class Lend extends React.Component {
       NanoToWnano: true,
     };
   }
-  changeCard() {
-    if (this.state.NanoToWnano === true) {
+  changeCard(which) {
+    if (which === 1) {
       this.setState({
-        NanoToWnano: false,
+        NanoToWnano: true,
       });
       console.log("he");
     } else {
       this.setState({
-        NanoToWnano: true,
+        NanoToWnano: false,
       });
     }
   }
@@ -30,7 +30,14 @@ export default class Lend extends React.Component {
         <div className="both">
           <div id="card" className="container">
             {" "}
-            <p>Nano to Wnano</p>
+            <div className="flexbox2">
+              <p onClick={() => this.changeCard(1)} id="light">
+                Wnano to Nano
+              </p>
+              <p onClick={() => this.changeCard(2)} id="dark">
+                Nano to Wnano
+              </p>
+            </div>
             <div className="container2" id="timeemojidiv">
               <h1 id="timeemoji">
                 <img id="eth" src={eth} />
@@ -45,7 +52,16 @@ export default class Lend extends React.Component {
               <input placeholder="Nano amount"></input>
             </div>
             <div className="container">
-              <a id="joinpool">Transfer</a>
+              <a
+                onClick={() =>
+                  alert(
+                    "Nothing connected here yet. The smart contract is still in development"
+                  )
+                }
+                id="joinpool"
+              >
+                Transfer
+              </a>
             </div>
           </div>
         </div>
@@ -55,7 +71,14 @@ export default class Lend extends React.Component {
         <div className="both">
           <div id="card" className="container">
             {" "}
-            <p>Wnano to Nano</p>
+            <div className="flexbox2">
+              <p onClick={() => this.changeCard(1)} id="dark">
+                Wnano to Nano
+              </p>
+              <p onClick={() => this.changeCard(2)} id="light">
+                Nano to Wnano
+              </p>
+            </div>
             <div className="container2" id="timeemojidiv">
               <h1 id="timeemoji">
                 <img id="nano" src={nano} />
@@ -70,7 +93,16 @@ export default class Lend extends React.Component {
               <input placeholder="Wnano amount"></input>
             </div>
             <div className="container">
-              <a id="joinpool">Transfer</a>
+              <a
+                onClick={() =>
+                  alert(
+                    "Nothing connected here yet. The smart contract is still in development"
+                  )
+                }
+                id="joinpool"
+              >
+                Transfer
+              </a>
             </div>
           </div>
         </div>
