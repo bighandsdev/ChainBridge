@@ -120,7 +120,7 @@ function App() {
               <span style={{ width: `${progressBar}%` }}></span>
             </div>
           </div>
-          <p>Current we are at {Math.round(progress * 100) / 100} Nano</p>
+          <p>Currently we are at {Math.round(progress * 100) / 100} Nano</p>
           <div id="fund" onClick={() => changeScreen(3)} className="container">
             <a>Fund</a>
           </div>
