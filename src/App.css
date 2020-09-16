@@ -154,3 +154,16 @@ p {
 #fundingtext {
   margin-bottom: 1px;
 }
+#fund:hover {
+  background-color: rgb(255, 249, 249);
+  cursor: pointer;
+  font-size: medium;
+  color: #651962;
+  font-family: "Nunito", sans-serif;
+}
+#fund {
+  cursor: pointer;
+  font-size: medium;
+  color: #651962;
+  font-family: "Nunito", sans-serif;
+}

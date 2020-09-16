@@ -98,7 +98,6 @@ function App() {
         </header>
         <body className="bodyfund">
           {" "}
-          <p>To help bring ChainBridge to life, we need your support.</p>
           <p id="fundingtext"> Our funding goal is:</p>
           <h1 id="amount">5,000 Nano</h1>
           <div className="container6">
@@ -107,8 +106,8 @@ function App() {
             </div>
           </div>
           <p>Current we are at {Math.round(progress * 100) / 100} Nano</p>
-          <div onClick={() => changeScreen(3)} className="container">
-            <a id="joinpool">Fund</a>
+          <div id="fund" onClick={() => changeScreen(3)} className="container">
+            <a>Fund</a>
           </div>
           <div
             onClick={() => changeScreen(2)}
@@ -160,8 +159,8 @@ function App() {
               <span style={{ width: `${progressBar}%` }}></span>
             </div>
           </div>
-          <div onClick={() => changeScreen(1)} className="container">
-            <a id="joinpool">Back</a>
+          <div id="fund" onClick={() => changeScreen(1)} className="container">
+            <a>Back</a>
           </div>
           <div
             onClick={() => changeScreen(2)}
