@@ -17,8 +17,8 @@ function App() {
 
   const [addr, setAddr] = useState("");
   const [fundingScreen, setFundingScreen] = useState(1);
-  const [progressBar, setProgressBar] = useState("");
-  const [progress, setProgress] = useState("");
+  const [progressBar, setProgressBar] = useState("1");
+  const [progress, setProgress] = useState("1");
   checkProgress();
 
   async function getAccount() {
@@ -52,6 +52,20 @@ function App() {
           console.log(error);
         }
       );
+  }
+  function viewInterface() {
+    let width = window.innerWidth;
+    if (width > 700) {
+      return (
+        <div
+          onClick={() => changeScreen(2)}
+          id="seeinter"
+          className="container"
+        >
+          <a id="joinpool">View the interface</a>
+        </div>
+      );
+    }
   }
   async function checkPercentage(Number) {
     let A = Number;
@@ -90,6 +104,7 @@ function App() {
         // If the request fails, the Promise will reject with an error.
       });
   }
+
   if (fundingScreen === 1) {
     return (
       <div className="App">
@@ -109,13 +124,7 @@ function App() {
           <div id="fund" onClick={() => changeScreen(3)} className="container">
             <a>Fund</a>
           </div>
-          <div
-            onClick={() => changeScreen(2)}
-            id="seeinter"
-            className="container"
-          >
-            <a id="joinpool">View the interface</a>
-          </div>
+          {viewInterface()}
         </body>
       </div>
     );
@@ -148,27 +157,24 @@ function App() {
         <header className="App-header">
           <Header />
         </header>
-        <body>
+        <body className="bodyfund">
           <img id="qrcode" src={qr} />
-          <p>
-            nano_374ebdxydfbdngnr6hibbs8mms7zs5t656pd5yjc7fsewp1n77dn8t75zkbd
-          </p>
-
-          <div className="container6">
-            <div className="meter">
-              <span style={{ width: `${progressBar}%` }}></span>
-            </div>
+          <div
+            id="fund"
+            onClick={() => {
+              navigator.clipboard.writeText(
+                "nano_374ebdxydfbdngnr6hibbs8mms7zs5t656pd5yjc7fsewp1n77dn8t75zkbd"
+              );
+            }}
+            className="container"
+          >
+            <a>Copy address 📋</a>
           </div>
+
           <div id="fund" onClick={() => changeScreen(1)} className="container">
             <a>Back</a>
           </div>
-          <div
-            onClick={() => changeScreen(2)}
-            id="seeinter"
-            className="container"
-          >
-            <a id="joinpool">View the interface</a>
-          </div>
+          {viewInterface()}
         </body>
       </div>
     );

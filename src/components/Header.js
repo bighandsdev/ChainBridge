@@ -7,7 +7,7 @@ export default class Header extends React.Component {
       <div>
         <h1 id="firstpartoftitle">
           {" "}
-          🌉 <p id="secondpartoftitle"> ChainBridge</p>
+          <p id="secondpartoftitle"> 🌉ChainBridge</p>
         </h1>
       </div>
     );
